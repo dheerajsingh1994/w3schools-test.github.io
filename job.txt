@@ -1,0 +1,85 @@
+let parentItems = document.getElementsByClassName('material');
+    let pArr = [];
+    let mainArr = [];
+    $('.material').each((i, v) => {
+        pArr.push($(v).val());
+
+        let parentItem = []
+        parentItem['materialInput'] = 'material';
+        parentItem['materialValue'] = pArr[i];
+
+        let childArr = [];
+        childArr.push(parentItem)
+        
+        // console.log($(v).closest('#parentItem').siblings('#childItem').find('#TextBoxContainer > tr').length);
+        if($(v).closest('#parentItem').siblings('#childItem').find('#TextBoxContainer > tr').length) {
+            $(v).closest('#parentItem').siblings('#childItem').find('#TextBoxContainer > tr').each((i2, v2) => {
+
+                let fullArr = [];
+                $(v2).find('input, select').each((i3, v3) => {
+                    let innerChilArr = [];
+                    // innerChilArr.push($(v2).val());
+                    innerChilArr['inputName'] = $(v3).attr('name');
+                    innerChilArr['inputValue'] = $(v3).val();
+
+                    fullArr.push(innerChilArr)
+                    // return innerChilArr
+                })
+                childArr.push(fullArr)
+                // console.log(childArr);
+            });
+            mainArr.push(childArr);
+            // console.log('Final Array');
+            // console.log(mainArr);
+        }
+        else console.log('No rows found');
+    })
+    console.log('Final Array');
+    console.log(mainArr. mainArr.length);
+
+
+
+
+
+
+
+    // source
+    let parentItems = document.getElementsByClassName('material');
+    let pArr = [];
+    let mainArr = [];
+    $('.material').each((i, v) => {
+        pArr.push($(v).val());
+
+        let parentItem = []
+        parentItem['materialInput'] = 'material';
+        parentItem['materialValue'] = pArr[i];
+
+        let childArr = [];
+        childArr.push(JSON.stringify(parentItem))
+        
+        // console.log($(v).closest('#parentItem').siblings('#childItem').find('#TextBoxContainer > tr').length);
+        if($(v).closest('#parentItem').siblings('#childItem').find('#TextBoxContainer > tr').length) {
+            $(v).closest('#parentItem').siblings('#childItem').find('#TextBoxContainer > tr').each((i2, v2) => {
+
+                let fullArr = [];
+                $(v2).find('input, select').each((i3, v3) => {
+                    let innerChilArr = [];
+                    // innerChilArr.push($(v2).val());
+                    innerChilArr['inputName'] = $(v3).attr('name');
+                    innerChilArr['inputValue'] = $(v3).val();
+
+                    fullArr.push(innerChilArr)
+                    // return innerChilArr
+                })
+                childArr.push(fullArr)
+                // console.log(childArr);
+            });
+            mainArr.push(childArr);
+            // console.log('Final Array');
+            // console.log(mainArr);
+        }
+        else console.log('No rows found');
+    })
+    //console.log('Final Array');
+    console.log(typeof(mainArr), mainArr.length);
+    console.log(mainArr)
